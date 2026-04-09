@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
+*.log
+output_error.txt
+tmp_b64.txt
+
+# IDE files
+.vscode/
+.idea/
+
+# XAMPP/WAMP specific (if any)
+cgi-bin/
