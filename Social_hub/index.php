@@ -91,14 +91,16 @@ if (isset($_GET['pwd_success'])) {
             <?php if (isset($errors['loginId'])) { ?>
                 <p class="error"><?php echo $errors['loginId']; ?></p>
             <?php } ?>
-            <div class="password-field-wrapper" style="position: relative; width: 330px; margin: 10px auto 0;">
+            <div class="password-field-wrapper" style="position: relative; margin: 10px auto 0;">
+
                 <input type="password" value="<?= isset($_POST['loginPassword']) ? $_POST['loginPassword'] : ''; ?>"
-                    name="loginPassword" id="loginPassword" placeholder="Password" style="width: 100%; margin-top: 0;">
+                    name="loginPassword" id="loginPassword" placeholder="Password"
+                    style="width: 100%; margin-top: 0; box-sizing: border-box;">
                 <i class="fas fa-eye" id="togglePassword"
-                    style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #94a3b8; transition: color 0.3s;"></i>
+                    style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #94a3b8; transition: color 0.3s; z-index: 10;"></i>
             </div>
             <?php if (isset($errors['loginPassword'])) { ?>
-                <p class="error" style="width: 330px; margin: 5px auto;"><?php echo $errors['loginPassword']; ?></p>
+                <p class="error"><?php echo $errors['loginPassword']; ?></p>
             <?php } ?>
             <button type="submit" id="loginBtn">Log in</button>
             <div class="login_link" id="login_link">

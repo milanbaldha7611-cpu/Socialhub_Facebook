@@ -202,7 +202,7 @@ if (isset($_POST['signupBtn']) && $_POST['signupBtn'] == 'Sign Up') {
             ?>
 
 
-            <div class="password-field-wrapper" style="position: relative; width: 330px; margin: 10px auto 0;">
+            <div class="password-field-wrapper" style="position: relative; margin: 10px auto 0;">
                 <input type="password" name="signupPassword"
                     title="Password must contain at least one letter, one number, one special character, and be at least 8 characters long"
                     pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" id="signupPassword"
@@ -213,11 +213,11 @@ if (isset($_POST['signupBtn']) && $_POST['signupBtn'] == 'Sign Up') {
             </div>
             <?php
             if (isset($error['signupPassword']) && !empty($error['signupPassword'])) {
-                echo '<div class="error-message" style="width: 330px; margin: 5px auto;">' . $error['signupPassword'] . '</div>';
+                echo '<div class="error-message">' . $error['signupPassword'] . '</div>';
             }
             ?>
 
-            <div class="password-field-wrapper" style="position: relative; width: 330px; margin: 10px auto 0;">
+            <div class="password-field-wrapper" style="position: relative; margin: 10px auto 0;">
                 <input type="password" name="connfirmPassword"
                     pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" id="connfirmPassword"
                     placeholder="Confirm password" style="width: 100%; margin-top: 0;">
@@ -227,7 +227,7 @@ if (isset($_POST['signupBtn']) && $_POST['signupBtn'] == 'Sign Up') {
             </div>
             <?php
             if (isset($error['connfirmPassword']) && !empty($error['connfirmPassword'])) {
-                echo '<div class="error-message" style="width: 330px; margin: 5px auto;">' . $error['connfirmPassword'] . '</div>';
+                echo '<div class="error-message">' . $error['connfirmPassword'] . '</div>';
             }
             ?>
             <div class="profile_image">

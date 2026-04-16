@@ -2916,6 +2916,14 @@ body.light-mode .profile_container .frnd_req_name {
         /* Hide by default on mobile */
     }
 
+    .chat.chat-active {
+        display: flex !important;
+    }
+
+    .people-list.people-hidden {
+        display: none !important;
+    }
+
     .chat-back-btn {
         display: block;
         /* Show back button on mobile */
@@ -3223,6 +3231,8 @@ body.light-mode .hamburger-btn {
         grid-template-columns: repeat(4, 1fr);
         place-items: center;
         gap: 0;
+        margin: 0 !important;
+        /* Fix horizontal scroll & centering */
         background: rgba(255, 255, 255, 0.03);
     }
 
@@ -3241,26 +3251,49 @@ body.light-mode .hamburger-btn {
     }
 
     .nav3 {
-        flex-wrap: wrap;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
         gap: 20px;
         border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 15px !important;
+    }
+
+    .nav3 button#notification-btn {
+        margin: 0 !important;
     }
 
     .nav3 .user_icon {
-        width: 100%;
+        width: auto !important;
+        margin: 0 !important;
         justify-content: center;
         gap: 15px;
-        margin-bottom: 10px;
     }
 
     .nav3 .user_icon h4 {
-        font-size: 1rem;
-        text-align: left;
+        display: none !important;
+        /* Hide name on mobile dropdown for clean UI */
+    }
+
+    .nav3 form {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
     }
 
     #logout {
-        width: 80% !important;
-        margin: 5px auto;
+        width: 100% !important;
+        max-width: 250px;
+        margin: 0 auto !important;
+        padding: 12px 0 !important;
+        border-radius: 8px !important;
+        text-align: center !important;
+        box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4) !important;
+        font-size: 16px !important;
+        display: block !important;
     }
 
     .search-container {
@@ -3298,8 +3331,15 @@ body.light-mode .hamburger-btn {
     .add_story,
     .card {
         width: 100% !important;
-        max-width: 100%;
-        border-radius: 12px !important;
+        max-width: 100% !important;
+        margin: 10px 0 !important;
+        border-radius: 0 !important;
+    }
+
+    .post_media_area,
+    .post_media_area img,
+    .post_media_area video {
+        max-height: 450px !important;
     }
 
     .card_head_left {
@@ -3528,6 +3568,8 @@ body.light-mode .hamburger-btn {
 
     .frnd_card {
         padding: 15px;
+        flex-wrap: wrap;
+        /* Fix "cut the 25%" overflow */
     }
 
     .frnd_img {
@@ -3542,6 +3584,7 @@ body.light-mode .hamburger-btn {
     .frnd_actions {
         flex-direction: row;
         width: 100%;
+        margin: 10px 0 0 0;
     }
 
     .frnd_msg_btn,
@@ -3949,4 +3992,52 @@ body.light-mode .comment-action-btn.commentDelete {
 
 body.light-mode .comment-like-count {
     color: #475569 !important;
+}
+
+body.light-mode .comment-action-btn {
+    color: #64748b !important;
+}
+
+body.light-mode .comment-action-btn:hover {
+    color: #2563eb !important;
+}
+
+body.light-mode .comment-action-btn.commentDelete {
+    color: #ef4444 !important;
+}
+
+body.light-mode .comment-like-count {
+    color: #475569 !important;
+}
+
+/* Global Form Sizing Fixes */
+@media (min-width: 993px) {
+    .password-field-wrapper {
+        width: 330px;
+        margin: 10px auto 0;
+    }
+
+    #loginPassword,
+    #signupPassword,
+    #connfirmPassword {
+        width: 100% !important;
+        padding-right: 40px !important;
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .password-field-wrapper {
+        width: 90% !important;
+        max-width: 400px;
+        margin: 10px auto 0;
+    }
+
+    #loginPassword,
+    #signupPassword,
+    #connfirmPassword {
+        width: 100% !important;
+        padding-right: 40px !important;
+        margin-top: 0 !important;
+    }
 }

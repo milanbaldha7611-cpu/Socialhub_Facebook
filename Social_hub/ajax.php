@@ -1179,11 +1179,11 @@ if (isset($_POST['action']) && $_POST['action'] == 'get_friend_details') {
                         </div>
                         
                         <div style="display: flex; gap: 15px; align-items: center;">
-                            <button class="user_block_btn profile_btn" data-user-srno="' . $friendRow['srno'] . '" style="background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); padding: 5px 10px; font-size: 14px; border-radius: 8px;">
+                            <button class="user_block_btn profile_btn" data-user-srno="' . $friendRow['srno'] . '" style="background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); padding: 8px 16px; font-size: 16px; font-weight: 600; border-radius: 12px; display: flex; align-items: center; gap: 8px; transition: all 0.2s;">
                                 <i class="fas fa-ban"></i> Block
                             </button>
-                            <button id="clear_chat">
-                                <img src="icon/delete-button.png" alt="">
+                            <button id="clear_chat" style="background: none; border: none; padding: 5px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s;">
+                                <img src="icon/delete-button.png" alt="Delete" style="height: 28px; width: 28px; filter: drop-shadow(0 2px 4px rgba(239, 68, 68, 0.3));">
                             </button>
                         </div>';
         echo json_encode($response);

@@ -1369,12 +1369,12 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (response) {
-                $('.chat').css('display', 'flex');
+                $('.chat').addClass('chat-active');
                 $('.chat-header').html(response);
 
                 // Hide people list on mobile when chat opens
                 if ($(window).width() <= 768) {
-                    $('.people-list').hide();
+                    $('.people-list').addClass('people-hidden');
                 }
 
                 loadMessages();
@@ -1388,8 +1388,8 @@ $(document).ready(function () {
     // Back button event listener for mobile chat
     $(document).on('click', '#chat-back-btn', function () {
         if ($(window).width() <= 768) {
-            $('.chat').hide();
-            $('.people-list').show();
+            $('.chat').removeClass('chat-active');
+            $('.people-list').removeClass('people-hidden');
         }
     });
 

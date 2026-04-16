@@ -35,30 +35,30 @@ $userimage = $_SESSION['user_image'];
 
         <div id="nav-menu" class="nav-menu">
             <div class="nav2">
-            <a href="welcome.php"><img src="icon/home.png" alt="Home"></a>
-            <a href="friends.php"><img src="icon/groups.png" alt="Group"></a>
-            <a href="messanger.php"><img src="icon/messenger.png" alt="Chat"></a>
-            <a href="find_friends.php"><img src="icon/add-user.svg" alt="Find Friends"></a>
-        </div>
-
-        <div class="nav3">
-
-            <!-- HTML button with unread notification count -->
-            <button data-notification-count="" id="notification-btn">
-                <img src="icon/bell-ring_3306630.png" />
-            </button>
-            <div class="user_icon">
-                <a href="profile.php"><img src="post_img/<?php echo $_SESSION['user_image']; ?>" alt="User"></a>
-                <h4>
-                    <?php echo $firstName;
-                    echo ' <br>';
-                    echo $surname; ?>
-                </h4>
+                <a href="welcome.php"><img src="icon/home.png" alt="Home"></a>
+                <a href="friends.php"><img src="icon/groups.png" alt="Group"></a>
+                <a href="messanger.php"><img src="icon/messenger.png" alt="Chat"></a>
+                <a href="find_friends.php"><img src="icon/add-user.svg" alt="Find Friends"></a>
             </div>
-            <form action="logout.php" method="post">
-                <input type="submit" value="Logout" id="logout" name="logout">
-            </form>
-        </div>
+
+            <div class="nav3">
+
+                <!-- HTML button with unread notification count -->
+                <button data-notification-count="" id="notification-btn">
+                    <img src="icon/bell-ring_3306630.png" />
+                </button>
+                <div class="user_icon">
+                    <a href="profile.php"><img src="post_img/<?php echo $_SESSION['user_image']; ?>" alt="User"></a>
+                    <h4>
+                        <?php echo $firstName;
+                        echo ' <br>';
+                        echo $surname; ?>
+                    </h4>
+                </div>
+                <form action="logout.php" method="post">
+                    <input type="submit" value="Logout" id="logout" name="logout">
+                </form>
+            </div>
         </div>
     </nav>
     <div class="notification_box">
@@ -75,15 +75,15 @@ $userimage = $_SESSION['user_image'];
 
 </header>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var hamburger = document.getElementById('hamburger-menu');
-    var navMenu = document.getElementById('nav-menu');
-    if(hamburger && navMenu) {
-        hamburger.addEventListener('click', function(e) {
-            e.preventDefault();
-            navMenu.classList.toggle('active');
-        });
-    }
-});
+    document.addEventListener('DOMContentLoaded', function () {
+        var hamburger = document.getElementById('hamburger-menu');
+        var navMenu = document.getElementById('nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function (e) {
+                e.preventDefault();
+                navMenu.classList.toggle('active');
+            });
+        }
+    });
 </script>
 <script src="theme.js"></script>

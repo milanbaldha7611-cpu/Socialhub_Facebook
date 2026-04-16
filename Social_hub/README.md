@@ -38,6 +38,15 @@
 - **User Management**: View all registered users and delete accounts ensuring all associated records (posts, comments, etc.) are handled appropriately.
 - **Post Moderation**: Filter posts by type (Image, Video, Text) and remove inappropriate content.
 - **Story Moderation**: View all active stories and delete them if necessary.
+- **🛡️ Admin Chat Secure Access (New!)**: 
+  - User chats are locked and blurred by default to protect user privacy.
+  - Requires a specific secure password (`chat@123`) to unlock.
+  - Features an **Auto-Lock Session** (10-minute inactivity timeout) and manual one-click re-lock.
+  - Smooth modal-based authorization UI.
+
+### 📱 Layout & Performance (New!)
+- **Zero-Refresh Mobile Toggling**: The layout now adapts instantly to screen size changes (or F12 toggling) without needing a page refresh, thanks to class-based responsive logic.
+- **Feed Optimization**: Horizontal scrolling issues on mobile have been fixed by stripping card margins and intelligently capping media heights for a better scrolling experience.
 
 ---
 
@@ -101,6 +110,7 @@ Follow these steps to run SocialHub on your local machine using XAMPP:
 ├── signup.php             # User registration page
 ├── style.css              # Main stylesheet (Glassmorphism + Themes)
 ├── theme.js               # Theme switching logic (Light/Dark mode)
+│   verify_admin_chat.php  # Secure backend for admin chat authorization
 └── welcome.php            # Main News Feed and Post creation page
 ```
 
@@ -115,6 +125,7 @@ Follow these steps to run SocialHub on your local machine using XAMPP:
 - **SQL Injection Prevention**: Implementation of `mysqli_prepare` and parameterized queries.
 - **XSS Prevention**: Content sanitization using `htmlspecialchars()`.
 - **File Upload Security**: Strict MIME type validation, extension whitelisting, and unique filename generation.
+- **Chat Lockdown**: Dual-layer security for admin chat access including high-strength blur filters and auto-session expiry.
 
 ---
 *Created with ❤️ for modern web development.*

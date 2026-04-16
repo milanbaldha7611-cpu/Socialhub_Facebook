@@ -24,9 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($confirmPassword)) {
         $errors['confirmPassword'] = "Please enter your password.";
-    }
-    elseif( $confirmPassword != $loginPassword )
-    {
+    } elseif ($confirmPassword != $loginPassword) {
         $errors['confirmPassword'] = "Both passwords must be same!.";
     }
 
@@ -37,8 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
 
-        if ($result && mysqli_num_rows($result) > 0) 
-        {
+        if ($result && mysqli_num_rows($result) > 0) {
 
             $row = mysqli_fetch_assoc($result);
 
@@ -49,14 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_bind_param($stmt, "ss", $hash, $loginId);
             $result = mysqli_stmt_execute($stmt);
 
-            if( $result )
-            {
+            if ($result) {
                 header('Location: index.php?pwd_success=1');
                 exit();
             }
-        } 
-        else 
-        {
+        } else {
             $errors['loginId'] = "User does not exist with this phone or email.";
         }
     }
@@ -84,19 +78,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <form class="loginForm" action="" method="POST">
             <p>Change your Password</p>
-            <input type="text" name="loginId" id="loginId" value="<?= isset( $_POST['loginId'] ) ? $_POST['loginId'] : ''; ?>" placeholder="Email address or phone number">
-            <?php if(isset($errors['loginId'])) { ?>
+            <input type="text" name="loginId" id="loginId"
+                value="<?= isset($_POST['loginId']) ? $_POST['loginId'] : ''; ?>"
+                placeholder="Email address or phone number">
+            <?php if (isset($errors['loginId'])) { ?>
                 <p class="error"><?php echo $errors['loginId']; ?></p>
             <?php } ?>
 
-            <input type="password" title="Password must contain at least one letter, one number, one special character, and be at least 8 characters long" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" value="<?= isset( $_POST['loginPassword'] ) ? $_POST['loginPassword'] : ''; ?>" name="loginPassword" id="loginPassword" placeholder="Password">
-            <?php if(isset($errors['loginPassword'])) { ?>
+            <div class="password-field-wrapper" style="position: relative; margin: 10px auto 0;">
+                <input type="password"
+                    title="Password must contain at least one letter, one number, one special character, and be at least 8 characters long"
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                    value="<?= isset($_POST['loginPassword']) ? $_POST['loginPassword'] : ''; ?>" name="loginPassword"
+                    id="loginPassword" placeholder="Password" style="box-sizing: border-box;">
+                <i class="fas fa-eye" data-target="#loginPassword"
+                    style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #94a3b8; transition: color 0.3s; z-index: 10;"
+                    onclick="togglePass(this)"></i>
+            </div>
+            <?php if (isset($errors['loginPassword'])) { ?>
                 <p class="error"><?php echo $errors['loginPassword']; ?></p>
             <?php } ?>
 
-
-            <input type="password" value="<?= isset( $_POST['confirmPassword'] ) ? $_POST['confirmPassword'] : ''; ?>" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
-            <?php if(isset($errors['confirmPassword'])) { ?>
+            <div class="password-field-wrapper" style="position: relative; margin: 10px auto 0;">
+                <input type="password" value="<?= isset($_POST['confirmPassword']) ? $_POST['confirmPassword'] : ''; ?>"
+                    name="confirmPassword" id="connfirmPassword" placeholder="Confirm Password"
+                    style="box-sizing: border-box;">
+                <i class="fas fa-eye" data-target="#connfirmPassword"
+                    style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #94a3b8; transition: color 0.3s; z-index: 10;"
+                    onclick="togglePass(this)"></i>
+            </div>
+            <?php if (isset($errors['confirmPassword'])) { ?>
                 <p class="error"><?php echo $errors['confirmPassword']; ?></p>
             <?php } ?>
 
@@ -108,6 +119,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </form>
     </div>
+    <script>
+        function togglePass(icon) {
+            const targetId = icon.getAttribute('data-target');
+            const passwordInput = document.querySelector(targetId);
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            icon.classList.toggle('fa-eye-slash');
+            icon.classList.toggle('fa-eye');
+            passwordInput.focus();
+        }
+    </script>
 </body>
 
 </html>
